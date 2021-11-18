@@ -5,13 +5,22 @@ namespace Service.MarketingBox.Email.Service.Settings
 {
     public class SettingsModel
     {
-        [YamlProperty("MarketingBox.Email.Service.SeqServiceUrl")]
+        [YamlProperty("MarketingBoxEmailService.SeqServiceUrl")]
         public string SeqServiceUrl { get; set; }
 
-        [YamlProperty("MarketingBox.Email.Service.ZipkinUrl")]
+        [YamlProperty("MarketingBoxEmailService.ZipkinUrl")]
         public string ZipkinUrl { get; set; }
 
-        [YamlProperty("MarketingBox.Email.Service.ElkLogs")]
+        [YamlProperty("MarketingBoxEmailService.ElkLogs")]
         public LogElkSettings ElkLogs { get; set; }
+
+        [YamlProperty("MarketingBoxEmailService.SendGridSettingsFrom")]
+        public string SendGridSettingsFrom { get; set; }
+        
+        [YamlProperty("MarketingBoxEmailService.SendGridSettingsApiKey")]
+        public string SendGridSettingsApiKey { get; set; }
+        
+        [YamlProperty("MarketingBoxEmailService.IgnoreEmailsDomains")]
+        public string IgnoreEmailsDomains { get; set; }
     }
 }
