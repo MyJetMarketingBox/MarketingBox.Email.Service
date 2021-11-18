@@ -22,5 +22,8 @@ namespace Service.MarketingBox.Email.Service.Settings
         
         [YamlProperty("MarketingBoxEmailService.IgnoreEmailsDomains")]
         public string IgnoreEmailsDomains { get; set; }
+
+        [YamlProperty("MarketingBoxEmailService.SpotServiceBusHostPort")]
+        public string SpotServiceBusHostPort { get; set; }
     }
 }
