@@ -1,13 +1,48 @@
+using System;
 using System.Threading.Tasks;
 using MarketingBox.Affiliate.Service.Messages.Affiliates;
+using Microsoft.Extensions.Logging;
+using MyNoSqlServer.Abstractions;
+using Service.MarketingBox.Email.Service.Domain;
+using Service.MarketingBox.Email.Service.Domain.Models;
 
 namespace Service.MarketingBox.Email.Service.Engines
 {
     public class AffiliateConfirmationEngine
     {
+        private readonly ILogger<AffiliateConfirmationEngine> _logger;
+        private readonly IMyNoSqlServerDataWriter<AffiliateConfirmationNoSql> _dataWriter;
+        private readonly ISendGridEmailSender _sendGridEmailSender;
+
+        public AffiliateConfirmationEngine(ILogger<AffiliateConfirmationEngine> logger, 
+            IMyNoSqlServerDataWriter<AffiliateConfirmationNoSql> dataWriter, 
+            ISendGridEmailSender sendGridEmailSender)
+        {
+            _dataWriter = dataWriter;
+            _sendGridEmailSender = sendGridEmailSender;
+            _logger = logger;
+        }
+
         public async Task HandleAffiliate(AffiliateUpdated elem)
         {
-            throw new System.NotImplementedException();
+            var token = Guid.NewGuid().ToString("N");
+
+            await _dataWriter.InsertOrReplaceAsync(AffiliateConfirmationNoSql.Create(new AffiliateConfirmation()
+            {
+                CreatedDate = DateTime.UtcNow,
+                ExpiredDate = DateTime.UtcNow.AddHours(Program.Settings.ConfirmationTokenLifetimeInHours),
+                AffiliateId = elem.AffiliateId,
+                Token = token
+            }));
+            await _dataWriter.CleanAndKeepMaxPartitions(Program.Settings.ConfirmationCacheLength);
+
+            // TODO: set params
+            await _sendGridEmailSender.SendMailAsync(
+                elem.GeneralInfo.Email,
+                Program.Settings.ConfirmationEmailHeader,
+                "subject",
+                Program.Settings.ConfirmationEmailTemplateId,
+                new object());
         }
     }
 }

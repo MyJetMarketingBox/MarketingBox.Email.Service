@@ -25,5 +25,20 @@ namespace Service.MarketingBox.Email.Service.Settings
 
         [YamlProperty("MarketingBoxEmailService.SpotServiceBusHostPort")]
         public string SpotServiceBusHostPort { get; set; }
+
+        [YamlProperty("MarketingBoxEmailService.MyNoSqlWriterUrl")]
+        public string MyNoSqlWriterUrl { get; set; }
+
+        [YamlProperty("MarketingBoxEmailService.ConfirmationTokenLifetimeInHours")]
+        public int ConfirmationTokenLifetimeInHours { get; set; }
+
+        [YamlProperty("MarketingBoxEmailService.ConfirmationCacheLength")]
+        public int ConfirmationCacheLength { get; set; }
+
+        [YamlProperty("MarketingBoxEmailService.ConfirmationEmailHeader")]
+        public string ConfirmationEmailHeader { get; set; }
+        
+        [YamlProperty("MarketingBoxEmailService.ConfirmationEmailTemplateId")]
+        public string ConfirmationEmailTemplateId { get; set; }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using Autofac;
-using Autofac.Core;
-using Autofac.Core.Registration;
+using MyJetWallet.Sdk.NoSql;
 using Service.MarketingBox.Email.Service.Domain;
+using Service.MarketingBox.Email.Service.Domain.Models;
 using Service.MarketingBox.Email.Service.Engines;
 using Service.MarketingBox.Email.Service.Services;
 using Service.MarketingBox.Email.Service.Subscribers;
@@ -27,6 +27,10 @@ namespace Service.MarketingBox.Email.Service.Modules
                 .As<IStartable>()
                 .AutoActivate()
                 .SingleInstance();
+            
+            builder.RegisterMyNoSqlWriter<AffiliateConfirmationNoSql>(
+                Program.ReloadedSettings(e => e.MyNoSqlWriterUrl),
+                AffiliateConfirmationNoSql.TableName);
         }
     }
 }
