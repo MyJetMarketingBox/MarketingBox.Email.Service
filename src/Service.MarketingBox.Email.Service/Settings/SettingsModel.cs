@@ -23,8 +23,8 @@ namespace Service.MarketingBox.Email.Service.Settings
         [YamlProperty("MarketingBoxEmailService.IgnoreEmailsDomains")]
         public string IgnoreEmailsDomains { get; set; }
 
-        [YamlProperty("MarketingBoxEmailService.SpotServiceBusHostPort")]
-        public string SpotServiceBusHostPort { get; set; }
+        [YamlProperty("MarketingBoxEmailService.MarketingBoxServiceBusHostPort")]
+        public string MarketingBoxServiceBusHostPort { get; set; }
 
         [YamlProperty("MarketingBoxEmailService.MyNoSqlWriterUrl")]
         public string MyNoSqlWriterUrl { get; set; }

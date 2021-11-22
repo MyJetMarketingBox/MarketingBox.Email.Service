@@ -10,7 +10,7 @@ namespace Service.MarketingBox.Email.Service.Modules
     {
         protected override void Load(ContainerBuilder builder)
         {
-            var serviceBusClient = builder.RegisterMyServiceBusTcpClient(Program.ReloadedSettings(e => e.SpotServiceBusHostPort), Program.LogFactory);
+            var serviceBusClient = builder.RegisterMyServiceBusTcpClient(Program.ReloadedSettings(e => e.MarketingBoxServiceBusHostPort), Program.LogFactory);
             builder.RegisterMyServiceBusSubscriberBatch<AffiliateUpdated>(serviceBusClient, Topics.AffiliateUpdatedTopic, 
                 "MarketingBox-Email-Service", TopicQueueType.PermanentWithSingleConnection);
         }
