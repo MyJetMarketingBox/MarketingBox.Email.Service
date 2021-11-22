@@ -42,7 +42,7 @@ namespace Service.MarketingBox.Email.Service.Engines
                 Program.Settings.ConfirmationEmailSubject,
                 Program.Settings.ConfirmationEmailTemplateId,
                 new {
-                    Link = GetConfirmationLink(token)
+                    link = GetConfirmationLink(token)
                 });
         }
 
