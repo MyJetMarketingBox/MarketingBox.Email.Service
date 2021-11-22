@@ -32,9 +32,9 @@ namespace Service.MarketingBox.Email.Service.Subscribers
 
                 foreach (var elem in events)
                 {
-                    if (!elem.IsNew)
+                    if (elem.EventType == AffiliateUpdatedEventType.Updated)
                     {
-                        _logger.LogInformation($"Skip affiliate with id = {elem.AffiliateId}, because isNew = false.");
+                        _logger.LogInformation($"Skip affiliate with id = {elem.AffiliateId}, because EventType is Updated.");
                         continue;
                     }
                     await _affiliateConfirmationEngine.HandleAffiliate(elem);
