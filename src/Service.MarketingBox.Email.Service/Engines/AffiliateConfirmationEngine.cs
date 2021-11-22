@@ -35,14 +35,20 @@ namespace Service.MarketingBox.Email.Service.Engines
                 Token = token
             }));
             await _dataWriter.CleanAndKeepMaxPartitions(Program.Settings.ConfirmationCacheLength);
-
-            // TODO: set params
+            
             await _sendGridEmailSender.SendMailAsync(
                 elem.GeneralInfo.Email,
                 Program.Settings.ConfirmationEmailHeader,
-                "subject",
+                Program.Settings.ConfirmationEmailSubject,
                 Program.Settings.ConfirmationEmailTemplateId,
-                new object());
+                new {
+                    Link = GetConfirmationLink(token)
+                });
+        }
+
+        private static string GetConfirmationLink(string token)
+        {
+            return Program.Settings.RegistrationAffiliateApiUrl + "/api/affiliate/confirmation/" + token;
         }
     }
 }

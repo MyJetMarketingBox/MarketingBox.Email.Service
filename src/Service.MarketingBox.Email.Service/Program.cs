@@ -14,7 +14,7 @@ namespace Service.MarketingBox.Email.Service
 {
     public class Program
     {
-        public const string SettingsFileName = ".myjetwallet";
+        public const string SettingsFileName = ".marketingboxemailservice";
 
         public static SettingsModel Settings { get; private set; }
 

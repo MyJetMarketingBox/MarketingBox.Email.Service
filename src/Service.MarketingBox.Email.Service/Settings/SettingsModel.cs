@@ -40,5 +40,11 @@ namespace Service.MarketingBox.Email.Service.Settings
         
         [YamlProperty("MarketingBoxEmailService.ConfirmationEmailTemplateId")]
         public string ConfirmationEmailTemplateId { get; set; }
+        
+        [YamlProperty("MarketingBoxEmailService.ConfirmationEmailSubject")]
+        public string ConfirmationEmailSubject { get; set; }
+        
+        [YamlProperty("MarketingBoxEmailService.RegistrationAffiliateApiUrl")]
+        public string RegistrationAffiliateApiUrl { get; set; }
     }
 }
