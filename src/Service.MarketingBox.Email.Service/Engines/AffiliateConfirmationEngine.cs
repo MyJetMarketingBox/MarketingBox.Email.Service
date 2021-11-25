@@ -48,7 +48,7 @@ namespace Service.MarketingBox.Email.Service.Engines
 
         private static string GetConfirmationLink(string token)
         {
-            return Program.Settings.RegistrationAffiliateApiUrl + "/api/affiliate/confirmation/" + token;
+            return Program.Settings.RegistrationAffiliateApiUrl + "/api/affiliates/confirmation/" + token;
         }
     }
 }
