@@ -24,12 +24,12 @@
     <TargetsForTfmSpecificBuildOutput>
       $(TargetsForTfmSpecificBuildOutput);PackReferencedProjectOutputs
     </TargetsForTfmSpecificBuildOutput>
-    <PackageId>MyJetMarketingBox.Email.Service.Client</PackageId>
+    <PackageId>Service.MarketingBox.Email.Service.Client</PackageId>
     <Authors>MyJetMarketingBox</Authors>
     <Company>MyJetMarketingBox</Company>
     <Product>MyJetMarketingBox</Product>
-    <PackageProjectUrl>https://github.com/MyJetMarketingBox/Service.MarketingBox.Email.Service</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/MyJetMarketingBox/Service.MarketingBox.Email.Service</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/MyJetMarketingBox/MarketingBox.Email.Service</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/MyJetMarketingBox/MarketingBox.Email.Service</RepositoryUrl>
   </PropertyGroup>
 
   <Target Name="PackReferencedProjectOutputs" DependsOnTargets="BuildOnlySettings;ResolveReferences">
