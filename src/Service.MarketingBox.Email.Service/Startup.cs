@@ -46,7 +46,7 @@ namespace Service.MarketingBox.Email.Service
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGrpcSchema<HelloService, IHelloService>();
+                endpoints.MapGrpcSchema<EmailSenderService, IEmailSenderService>();
 
                 endpoints.MapGrpcSchemaRegistry();
 

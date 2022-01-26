@@ -5,9 +5,9 @@ using Service.MarketingBox.Email.Service.Grpc.Models;
 namespace Service.MarketingBox.Email.Service.Grpc
 {
     [ServiceContract]
-    public interface IHelloService
+    public interface IEmailSenderService
     {
         [OperationContract]
-        Task<HelloMessage> SayHelloAsync(HelloRequest request);
+        Task<SendCredentialsEmailResponse> SendCredentialsEmailAsync(SendCredentialsEmailRequest request);
     }
 }

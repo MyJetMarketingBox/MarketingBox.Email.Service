@@ -11,6 +11,6 @@ namespace Service.MarketingBox.Email.Service.Client
         {
         }
 
-        public IHelloService GetHelloService() => CreateGrpcService<IHelloService>();
+        public IEmailSenderService GetEmailSenderService() => CreateGrpcService<IEmailSenderService>();
     }
 }

@@ -1,11 +1,12 @@
 using System.Runtime.Serialization;
+using Service.MarketingBox.Email.Service.Domain.Models;
 
 namespace Service.MarketingBox.Email.Service.Grpc.Models
 {
     [DataContract]
-    public class HelloRequest
+    public class SendCredentialsEmailResponse
     {
         [DataMember(Order = 1)]
-        public string Name { get; set; }
+        public bool Success { get; set; }
     }
 }

@@ -46,5 +46,17 @@ namespace Service.MarketingBox.Email.Service.Settings
         
         [YamlProperty("MarketingBoxEmailService.RegistrationAffiliateApiUrl")]
         public string RegistrationAffiliateApiUrl { get; set; }
+
+        [YamlProperty("MarketingBoxEmailService.CredentialsEmailHeader")]
+        public string CredentialsEmailHeader { get; set; }
+        
+        [YamlProperty("MarketingBoxEmailService.CredentialsEmailSubject")]
+        public string CredentialsEmailSubject { get; set; }
+        
+        [YamlProperty("MarketingBoxEmailService.CredentialsEmailTemplateId")]
+        public string CredentialsEmailTemplateId { get; set; }
+        
+        [YamlProperty("MarketingBoxEmailService.CredentialsEmailLoginLink")]
+        public object CredentialsEmailLoginLink { get; set; }
     }
 }

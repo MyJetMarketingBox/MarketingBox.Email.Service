@@ -7,11 +7,11 @@ namespace Service.MarketingBox.Email.Service.Client
 {
     public static class AutofacHelper
     {
-        public static void ServiceClient(this ContainerBuilder builder, string grpcServiceUrl)
+        public static void RegisterEmailServiceClient(this ContainerBuilder builder, string grpcServiceUrl)
         {
             var factory = new ServiceClientFactory(grpcServiceUrl);
 
-            builder.RegisterInstance(factory.GetHelloService()).As<IHelloService>().SingleInstance();
+            builder.RegisterInstance(factory.GetEmailSenderService()).As<IEmailSenderService>().SingleInstance();
         }
     }
 }
