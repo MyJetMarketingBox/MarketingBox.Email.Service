@@ -24,7 +24,7 @@
     <TargetsForTfmSpecificBuildOutput>
       $(TargetsForTfmSpecificBuildOutput);PackReferencedProjectOutputs
     </TargetsForTfmSpecificBuildOutput>
-    <PackageId>MyJetMarketingBox.Service.MarketingBox.Email.Service.Client</PackageId>
+    <PackageId>MyJetMarketingBox.Email.Service.Client</PackageId>
     <Authors>MyJetMarketingBox</Authors>
     <Company>MyJetMarketingBox</Company>
     <Product>MyJetMarketingBox</Product>
