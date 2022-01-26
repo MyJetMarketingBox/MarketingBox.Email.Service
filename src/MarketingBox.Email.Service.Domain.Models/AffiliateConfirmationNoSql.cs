@@ -1,6 +1,6 @@
 using MyNoSqlServer.Abstractions;
 
-namespace Service.MarketingBox.Email.Service.Domain.Models
+namespace MarketingBox.Email.Service.Domain.Models
 {
     public class AffiliateConfirmationNoSql : MyNoSqlDbEntity
     {

@@ -1,6 +1,6 @@
 using System.Runtime.Serialization;
 
-namespace Service.MarketingBox.Email.Service.Grpc.Models
+namespace MarketingBox.Email.Service.Grpc.Models
 {
     [DataContract]
     public class SendCredentialsEmailRequest

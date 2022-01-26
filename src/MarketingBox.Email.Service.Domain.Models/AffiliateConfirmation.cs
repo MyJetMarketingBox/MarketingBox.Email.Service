@@ -1,6 +1,6 @@
 using System;
 
-namespace Service.MarketingBox.Email.Service.Domain.Models
+namespace MarketingBox.Email.Service.Domain.Models
 {
     public class AffiliateConfirmation
     {

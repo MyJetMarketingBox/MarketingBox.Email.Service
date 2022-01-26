@@ -1,7 +1,7 @@
 ﻿using MyJetWallet.Sdk.Service;
 using MyYamlParser;
 
-namespace Service.MarketingBox.Email.Service.Settings
+namespace MarketingBox.Email.Service.Settings
 {
     public class SettingsModel
     {

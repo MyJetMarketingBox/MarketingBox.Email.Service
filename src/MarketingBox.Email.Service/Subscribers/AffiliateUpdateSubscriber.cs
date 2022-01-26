@@ -4,10 +4,10 @@ using System.Threading.Tasks;
 using Autofac;
 using DotNetCoreDecorators;
 using MarketingBox.Affiliate.Service.Messages.Affiliates;
+using MarketingBox.Email.Service.Engines;
 using Microsoft.Extensions.Logging;
-using Service.MarketingBox.Email.Service.Engines;
 
-namespace Service.MarketingBox.Email.Service.Subscribers
+namespace MarketingBox.Email.Service.Subscribers
 {
     public class AffiliateUpdateSubscriber : IStartable
     {

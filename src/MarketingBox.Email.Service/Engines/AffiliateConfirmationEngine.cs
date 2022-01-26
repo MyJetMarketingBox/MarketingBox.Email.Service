@@ -1,13 +1,13 @@
 using System;
 using System.Threading.Tasks;
 using MarketingBox.Affiliate.Service.Messages.Affiliates;
+using MarketingBox.Email.Service.Domain;
+using MarketingBox.Email.Service.Domain.Models;
 using Microsoft.Extensions.Logging;
 using MyNoSqlServer.Abstractions;
 using Newtonsoft.Json;
-using MarketingBox.Email.Service.Domain;
-using Service.MarketingBox.Email.Service.Domain.Models;
 
-namespace Service.MarketingBox.Email.Service.Engines
+namespace MarketingBox.Email.Service.Engines
 {
     public class AffiliateConfirmationEngine
     {

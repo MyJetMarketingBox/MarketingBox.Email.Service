@@ -2,13 +2,13 @@ using System;
 using System.Net;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using MarketingBox.Email.Service.Domain;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using SendGrid;
 using SendGrid.Helpers.Mail;
-using MarketingBox.Email.Service.Domain;
 
-namespace Service.MarketingBox.Email.Service.Services
+namespace MarketingBox.Email.Service.Services
 {
     public class SendGridEmailSender : ISendGridEmailSender
     {

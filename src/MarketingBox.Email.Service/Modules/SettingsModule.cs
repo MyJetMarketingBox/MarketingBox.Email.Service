@@ -1,6 +1,6 @@
 ﻿using Autofac;
 
-namespace Service.MarketingBox.Email.Service.Modules
+namespace MarketingBox.Email.Service.Modules
 {
     public class SettingsModule : Module
     {

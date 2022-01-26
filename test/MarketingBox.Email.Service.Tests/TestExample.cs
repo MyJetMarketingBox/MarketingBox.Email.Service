@@ -1,7 +1,7 @@
 ﻿using System;
 using NUnit.Framework;
 
-namespace Service.MarketingBox.Email.Service.Tests
+namespace MarketingBox.Email.Service.Tests
 {
     public class TestExample
     {

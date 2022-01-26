@@ -5,7 +5,7 @@
 
     <IsPackable>false</IsPackable>
 
-    <RootNamespace>Service.MarketingBox.Email.Service.Tests</RootNamespace>
+    <RootNamespace>MarketingBox.Email.Service.Tests</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

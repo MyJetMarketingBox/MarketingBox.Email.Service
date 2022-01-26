@@ -4,7 +4,7 @@ using MarketingBox.Affiliate.Service.Messages.Affiliates;
 using MyJetWallet.Sdk.ServiceBus;
 using MyServiceBus.Abstractions;
 
-namespace Service.MarketingBox.Email.Service.Modules
+namespace MarketingBox.Email.Service.Modules
 {
     public class ClientModule : Module
     {

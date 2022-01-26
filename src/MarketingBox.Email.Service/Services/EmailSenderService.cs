@@ -1,11 +1,11 @@
 ﻿using System.Threading.Tasks;
+using MarketingBox.Email.Service.Domain;
+using MarketingBox.Email.Service.Grpc;
+using MarketingBox.Email.Service.Grpc.Models;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
-using MarketingBox.Email.Service.Domain;
-using Service.MarketingBox.Email.Service.Grpc;
-using Service.MarketingBox.Email.Service.Grpc.Models;
 
-namespace Service.MarketingBox.Email.Service.Services
+namespace MarketingBox.Email.Service.Services
 {
     public class EmailSenderService: IEmailSenderService
     {

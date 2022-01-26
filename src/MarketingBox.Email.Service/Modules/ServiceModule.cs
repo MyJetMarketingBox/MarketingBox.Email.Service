@@ -1,12 +1,12 @@
 ﻿using Autofac;
-using MyJetWallet.Sdk.NoSql;
 using MarketingBox.Email.Service.Domain;
-using Service.MarketingBox.Email.Service.Domain.Models;
-using Service.MarketingBox.Email.Service.Engines;
-using Service.MarketingBox.Email.Service.Services;
-using Service.MarketingBox.Email.Service.Subscribers;
+using MarketingBox.Email.Service.Domain.Models;
+using MarketingBox.Email.Service.Engines;
+using MarketingBox.Email.Service.Services;
+using MarketingBox.Email.Service.Subscribers;
+using MyJetWallet.Sdk.NoSql;
 
-namespace Service.MarketingBox.Email.Service.Modules
+namespace MarketingBox.Email.Service.Modules
 {
     public class ServiceModule: Module
     {

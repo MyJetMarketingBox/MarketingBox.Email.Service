@@ -1,22 +1,20 @@
 ﻿using System.Reflection;
+using Autofac;
+using MarketingBox.Email.Service.Grpc;
+using MarketingBox.Email.Service.Modules;
+using MarketingBox.Email.Service.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Autofac;
-using MyJetWallet.Sdk.GrpcMetrics;
 using MyJetWallet.Sdk.GrpcSchema;
 using MyJetWallet.Sdk.Service;
 using Prometheus;
-using ProtoBuf.Grpc.Server;
-using Service.MarketingBox.Email.Service.Grpc;
-using Service.MarketingBox.Email.Service.Modules;
-using Service.MarketingBox.Email.Service.Services;
-using SimpleTrading.BaseMetrics;
+using Service.MarketingBox.Email.Service;
 using SimpleTrading.ServiceStatusReporterConnector;
 
-namespace Service.MarketingBox.Email.Service
+namespace MarketingBox.Email.Service
 {
     public class Startup
     {

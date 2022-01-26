@@ -1,9 +1,9 @@
 ﻿using Autofac;
-using Service.MarketingBox.Email.Service.Grpc;
+using MarketingBox.Email.Service.Grpc;
 
 // ReSharper disable UnusedMember.Global
 
-namespace Service.MarketingBox.Email.Service.Client
+namespace MarketingBox.Email.Service.Client
 {
     public static class AutofacHelper
     {

@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <LangVersion>8.0</LangVersion>
-    <RootNamespace>Service.MarketingBox.Email.Service.Domain.Models</RootNamespace>
+    <RootNamespace>MarketingBox.Email.Service.Domain.Models</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
