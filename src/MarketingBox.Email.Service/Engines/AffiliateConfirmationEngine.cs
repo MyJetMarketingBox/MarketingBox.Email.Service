@@ -4,7 +4,7 @@ using MarketingBox.Affiliate.Service.Messages.Affiliates;
 using Microsoft.Extensions.Logging;
 using MyNoSqlServer.Abstractions;
 using Newtonsoft.Json;
-using Service.MarketingBox.Email.Service.Domain;
+using MarketingBox.Email.Service.Domain;
 using Service.MarketingBox.Email.Service.Domain.Models;
 
 namespace Service.MarketingBox.Email.Service.Engines

@@ -4,6 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <UserSecretsId>e6392ce6-dc7d-480a-a426-abbb0307ac7d</UserSecretsId>
     <LangVersion>8.0</LangVersion>
+    <RootNamespace>Service.MarketingBox.Email.Service</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -27,8 +28,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Service.MarketingBox.Email.Service.Domain\Service.MarketingBox.Email.Service.Domain.csproj" />
-    <ProjectReference Include="..\Service.MarketingBox.Email.Service.Grpc\Service.MarketingBox.Email.Service.Grpc.csproj" />
+    <ProjectReference Include="..\MarketingBox.Email.Service.Domain\MarketingBox.Email.Service.Domain.csproj" />
+    <ProjectReference Include="..\MarketingBox.Email.Service.Grpc\MarketingBox.Email.Service.Grpc.csproj" />
   </ItemGroup>
 
   <ItemGroup>

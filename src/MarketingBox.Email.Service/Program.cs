@@ -32,7 +32,7 @@ namespace Service.MarketingBox.Email.Service
 
         public static void Main(string[] args)
         {
-            Console.Title = "MyJetWallet Service.MarketingBox.Email.Service";
+            Console.Title = "MyJetWallet MarketingBox.Email.Service";
 
             Settings = SettingsReader.GetSettings<SettingsModel>(SettingsFileName);
 

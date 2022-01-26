@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
-using Service.MarketingBox.Email.Service.Domain;
+using MarketingBox.Email.Service.Domain;
 using Service.MarketingBox.Email.Service.Grpc;
 using Service.MarketingBox.Email.Service.Grpc.Models;
 

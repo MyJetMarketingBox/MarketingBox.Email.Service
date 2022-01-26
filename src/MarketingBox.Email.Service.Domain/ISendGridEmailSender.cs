@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace Service.MarketingBox.Email.Service.Domain
+namespace MarketingBox.Email.Service.Domain
 {
     public interface ISendGridEmailSender
     {

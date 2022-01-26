@@ -1,6 +1,6 @@
 ﻿using Autofac;
 using MyJetWallet.Sdk.NoSql;
-using Service.MarketingBox.Email.Service.Domain;
+using MarketingBox.Email.Service.Domain;
 using Service.MarketingBox.Email.Service.Domain.Models;
 using Service.MarketingBox.Email.Service.Engines;
 using Service.MarketingBox.Email.Service.Services;

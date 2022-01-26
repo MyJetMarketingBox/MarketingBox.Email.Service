@@ -6,7 +6,7 @@ using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using SendGrid;
 using SendGrid.Helpers.Mail;
-using Service.MarketingBox.Email.Service.Domain;
+using MarketingBox.Email.Service.Domain;
 
 namespace Service.MarketingBox.Email.Service.Services
 {
