@@ -39,17 +39,15 @@ namespace Service.MarketingBox.Email.Service.Engines
             await _dataWriter.InsertOrReplaceAsync(noSqlEntity);
             
             await _dataWriter.CleanAndKeepMaxPartitions(Program.Settings.ConfirmationCacheLength);
-
-            var confirmationLink = GetConfirmationLink(token);
-            var response = await _sendGridEmailSender.SendMailAsync(
+            
+            await _sendGridEmailSender.SendMailAsync(
                 elem.GeneralInfo.Email,
                 Program.Settings.ConfirmationEmailHeader,
                 Program.Settings.ConfirmationEmailSubject,
                 Program.Settings.ConfirmationEmailTemplateId,
                 new {
-                    link = confirmationLink
+                    link = GetConfirmationLink(token)
                 });
-            _logger.LogInformation($"Sent email to {elem.GeneralInfo.Email} with confirmation link: {confirmationLink}. Receive response = {response}");
         }
 
         private static string GetConfirmationLink(string token)
