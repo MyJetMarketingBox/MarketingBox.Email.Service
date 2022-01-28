@@ -23,12 +23,13 @@ namespace MarketingBox.Email.Service.Services
             _client = new SendGridClient(apiKey);
         }
 
-        public async Task<bool> SendMailAsync(string to, string header, string subject, string templateId, object data, string from = "")
+        public async Task<(bool, string)> SendMailAsync(string to, string header, string subject, string templateId, object data, string from = "")
         {
             if (Regex.IsMatch(to, Program.Settings.IgnoreEmailsDomains))
             {
-                _logger.LogError($"Email in ignored list: {to}");
-                return false;
+                var message = $"Email in ignored list: {to}";
+                _logger.LogError(message);
+                return (false, message);
             }
             if (string.IsNullOrWhiteSpace(from))
             {
@@ -47,16 +48,17 @@ namespace MarketingBox.Email.Service.Services
                 var response = await _client.SendEmailAsync(msg);
                 if (response.StatusCode != HttpStatusCode.Accepted)
                 {
-                    _logger.LogError("Can't send message, response: {resp}", JsonConvert.SerializeObject(response));
-                    return false;
+                    var message = $"Can't send message, response: {JsonConvert.SerializeObject(response)}";
+                    _logger.LogError(message);
+                    return (false, message);
                 }
             }
             catch (Exception e)
             {
                 _logger.LogError(e, e.Message);
-                return false;
+                return (false, e.Message);
             }
-            return true;
+            return (true, string.Empty);
         }
     }
 }

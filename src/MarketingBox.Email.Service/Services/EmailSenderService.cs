@@ -35,11 +35,12 @@ namespace MarketingBox.Email.Service.Services
                     password = request.Password,
                     loginUrl = Program.Settings.CredentialsEmailLoginLink
                 });
-            _logger.LogInformation($"Sent credentials email to {request.EmailTo}. Receive response = {response}");
+            _logger.LogInformation($"Sent credentials email to {request.EmailTo}. Success = {response.Item1}. ErrorMessage = {response.Item2}.");
             
             return new SendCredentialsEmailResponse()
             {
-                Success = response
+                Success = response.Item1,
+                ErrorMessage = response.Item2
             };
         }
     }
