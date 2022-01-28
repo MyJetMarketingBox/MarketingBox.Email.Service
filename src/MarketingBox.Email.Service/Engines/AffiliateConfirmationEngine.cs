@@ -49,7 +49,8 @@ namespace MarketingBox.Email.Service.Engines
                 new {
                     link = confirmationLink
                 });
-            _logger.LogInformation($"Sent email to {elem.GeneralInfo.Email} with confirmation link: {confirmationLink}. Receive response = {response}");
+            _logger.LogInformation($"Sent email to {elem.GeneralInfo.Email} with confirmation link: {confirmationLink}. " +
+                                   $"Success = {response.Item1}. ErrorMessage = {response.Item2}.");
         }
 
         private static string GetConfirmationLink(string token)
