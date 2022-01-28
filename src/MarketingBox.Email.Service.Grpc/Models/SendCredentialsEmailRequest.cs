@@ -13,5 +13,8 @@ namespace MarketingBox.Email.Service.Grpc.Models
         
         [DataMember(Order = 3)]
         public string Password { get; set; }
+        
+        [DataMember(Order = 4)]
+        public string Username { get; set; }
     }
 }

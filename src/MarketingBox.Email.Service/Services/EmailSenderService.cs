@@ -30,9 +30,10 @@ namespace MarketingBox.Email.Service.Services
                 Program.Settings.CredentialsEmailSubject,
                 Program.Settings.CredentialsEmailTemplateId,
                 new {
+                    nickName = request.Username,
                     login = request.Login,
                     password = request.Password,
-                    loginLink = Program.Settings.CredentialsEmailLoginLink
+                    loginUrl = Program.Settings.CredentialsEmailLoginLink
                 });
             _logger.LogInformation($"Sent credentials email to {request.EmailTo}. Receive response = {response}");
             
