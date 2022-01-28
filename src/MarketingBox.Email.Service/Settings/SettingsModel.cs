@@ -57,6 +57,6 @@ namespace MarketingBox.Email.Service.Settings
         public string CredentialsEmailTemplateId { get; set; }
         
         [YamlProperty("MarketingBoxEmailService.CredentialsEmailLoginLink")]
-        public object CredentialsEmailLoginLink { get; set; }
+        public string CredentialsEmailLoginLink { get; set; }
     }
 }
