@@ -47,7 +47,8 @@ namespace MarketingBox.Email.Service.Engines
                 Program.Settings.ConfirmationEmailSubject,
                 Program.Settings.ConfirmationEmailTemplateId,
                 new {
-                    link = confirmationLink
+                    nickName = elem.GeneralInfo.Username,
+                    confirmEmailUrl = confirmationLink
                 });
             _logger.LogInformation($"Sent email to {elem.GeneralInfo.Email} with confirmation link: {confirmationLink}. " +
                                    $"Success = {response.Item1}. ErrorMessage = {response.Item2}.");
