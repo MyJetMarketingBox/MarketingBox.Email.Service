@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using MarketingBox.Affiliate.Service.Messages.Affiliates;
 using Microsoft.Extensions.Logging;
 using MyNoSqlServer.Abstractions;
+using Newtonsoft.Json;
 using Service.MarketingBox.Email.Service.Domain;
 using Service.MarketingBox.Email.Service.Domain.Models;
 
@@ -27,13 +28,16 @@ namespace Service.MarketingBox.Email.Service.Engines
         {
             var token = Guid.NewGuid().ToString("N");
 
-            await _dataWriter.InsertOrReplaceAsync(AffiliateConfirmationNoSql.Create(new AffiliateConfirmation()
+            var noSqlEntity = AffiliateConfirmationNoSql.Create(new AffiliateConfirmation()
             {
                 CreatedDate = DateTime.UtcNow,
                 ExpiredDate = DateTime.UtcNow.AddHours(Program.Settings.ConfirmationTokenLifetimeInHours),
                 AffiliateId = elem.AffiliateId,
                 Token = token
-            }));
+            });
+            _logger.LogInformation($"Saving to noSql entity : {JsonConvert.SerializeObject(noSqlEntity)}");
+            await _dataWriter.InsertOrReplaceAsync(noSqlEntity);
+            
             await _dataWriter.CleanAndKeepMaxPartitions(Program.Settings.ConfirmationCacheLength);
             
             await _sendGridEmailSender.SendMailAsync(
