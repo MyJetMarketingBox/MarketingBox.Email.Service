@@ -1,6 +1,7 @@
 using System.ServiceModel;
 using System.Threading.Tasks;
 using MarketingBox.Email.Service.Grpc.Models;
+using MarketingBox.Sdk.Common.Models.Grpc;
 
 namespace MarketingBox.Email.Service.Grpc
 {
@@ -8,6 +9,6 @@ namespace MarketingBox.Email.Service.Grpc
     public interface IEmailSenderService
     {
         [OperationContract]
-        Task<SendCredentialsEmailResponse> SendCredentialsEmailAsync(SendCredentialsEmailRequest request);
+        Task<Response<bool>> SendCredentialsEmailAsync(SendCredentialsEmailRequest request);
     }
 }
