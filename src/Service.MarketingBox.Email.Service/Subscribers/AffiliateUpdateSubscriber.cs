@@ -34,7 +34,8 @@ namespace Service.MarketingBox.Email.Service.Subscribers
                 {
                     if (elem.EventType != AffiliateUpdatedEventType.CreatedSub)
                     {
-                        _logger.LogInformation($"Skip affiliate with id = {elem.AffiliateId}, because EventType is {elem.EventType}.");
+                        _logger.LogInformation(
+                            $"Skip affiliate with id = {elem.Affiliate.AffiliateId}, because EventType is {elem.EventType}.");
                         continue;
                     }
                     await _affiliateConfirmationEngine.HandleAffiliate(elem);

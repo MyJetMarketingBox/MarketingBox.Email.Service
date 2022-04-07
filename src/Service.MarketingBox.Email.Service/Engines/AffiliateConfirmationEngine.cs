@@ -32,7 +32,7 @@ namespace Service.MarketingBox.Email.Service.Engines
             {
                 CreatedDate = DateTime.UtcNow,
                 ExpiredDate = DateTime.UtcNow.AddHours(Program.Settings.ConfirmationTokenLifetimeInHours),
-                AffiliateId = elem.AffiliateId,
+                AffiliateId = elem.Affiliate.AffiliateId,
                 Token = token
             });
             _logger.LogInformation($"Saving to noSql entity : {JsonConvert.SerializeObject(noSqlEntity)}");
@@ -41,7 +41,7 @@ namespace Service.MarketingBox.Email.Service.Engines
             await _dataWriter.CleanAndKeepMaxPartitions(Program.Settings.ConfirmationCacheLength);
             
             await _sendGridEmailSender.SendMailAsync(
-                elem.GeneralInfo.Email,
+                elem.Affiliate.GeneralInfo.Email,
                 Program.Settings.ConfirmationEmailHeader,
                 Program.Settings.ConfirmationEmailSubject,
                 Program.Settings.ConfirmationEmailTemplateId,
