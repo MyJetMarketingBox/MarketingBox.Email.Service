@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference PrivateAssets="All" Include="..\Service.MarketingBox.Email.Service.Domain.Models\Service.MarketingBox.Email.Service.Domain.Models.csproj" />
-    <ProjectReference PrivateAssets="All" Include="..\Service.MarketingBox.Email.Service.Grpc\Service.MarketingBox.Email.Service.Grpc.csproj" />
+    <ProjectReference PrivateAssets="All" Include="..\MarketingBox.Email.Service.Domain.Models\MarketingBox.Email.Service.Domain.Models.csproj" />
+    <ProjectReference PrivateAssets="All" Include="..\MarketingBox.Email.Service.Grpc\MarketingBox.Email.Service.Grpc.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,7 +23,7 @@
     <TargetsForTfmSpecificBuildOutput>
       $(TargetsForTfmSpecificBuildOutput);PackReferencedProjectOutputs
     </TargetsForTfmSpecificBuildOutput>
-    <PackageId>Service.MarketingBox.Email.Service.Client</PackageId>
+    <PackageId>MarketingBox.Email.Service.Client</PackageId>
     <Authors>MyJetMarketingBox</Authors>
     <Company>MyJetMarketingBox</Company>
     <Product>MyJetMarketingBox</Product>

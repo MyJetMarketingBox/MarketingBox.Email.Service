@@ -11,7 +11,6 @@ using Microsoft.Extensions.Hosting;
 using MyJetWallet.Sdk.GrpcSchema;
 using MyJetWallet.Sdk.Service;
 using Prometheus;
-using Service.MarketingBox.Email.Service;
 using SimpleTrading.ServiceStatusReporterConnector;
 
 namespace MarketingBox.Email.Service

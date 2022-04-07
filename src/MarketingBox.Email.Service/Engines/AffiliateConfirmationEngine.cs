@@ -1,13 +1,13 @@
 using System;
 using System.Threading.Tasks;
 using MarketingBox.Affiliate.Service.Messages.Affiliates;
+using MarketingBox.Email.Service.Domain;
+using MarketingBox.Email.Service.Domain.Models;
 using Microsoft.Extensions.Logging;
 using MyNoSqlServer.Abstractions;
 using Newtonsoft.Json;
-using Service.MarketingBox.Email.Service.Domain;
-using Service.MarketingBox.Email.Service.Domain.Models;
 
-namespace Service.MarketingBox.Email.Service.Engines
+namespace MarketingBox.Email.Service.Engines
 {
     public class AffiliateConfirmationEngine
     {
@@ -15,8 +15,8 @@ namespace Service.MarketingBox.Email.Service.Engines
         private readonly IMyNoSqlServerDataWriter<AffiliateConfirmationNoSql> _dataWriter;
         private readonly ISendGridEmailSender _sendGridEmailSender;
 
-        public AffiliateConfirmationEngine(ILogger<AffiliateConfirmationEngine> logger, 
-            IMyNoSqlServerDataWriter<AffiliateConfirmationNoSql> dataWriter, 
+        public AffiliateConfirmationEngine(ILogger<AffiliateConfirmationEngine> logger,
+            IMyNoSqlServerDataWriter<AffiliateConfirmationNoSql> dataWriter,
             ISendGridEmailSender sendGridEmailSender)
         {
             _dataWriter = dataWriter;
@@ -37,15 +37,16 @@ namespace Service.MarketingBox.Email.Service.Engines
             });
             _logger.LogInformation($"Saving to noSql entity : {JsonConvert.SerializeObject(noSqlEntity)}");
             await _dataWriter.InsertOrReplaceAsync(noSqlEntity);
-            
+
             await _dataWriter.CleanAndKeepMaxPartitions(Program.Settings.ConfirmationCacheLength);
-            
+
             await _sendGridEmailSender.SendMailAsync(
                 elem.Affiliate.GeneralInfo.Email,
                 Program.Settings.ConfirmationEmailHeader,
                 Program.Settings.ConfirmationEmailSubject,
                 Program.Settings.ConfirmationEmailTemplateId,
-                new {
+                new
+                {
                     link = GetConfirmationLink(token)
                 });
         }
