@@ -5,7 +5,6 @@ using MarketingBox.Email.Service.Domain;
 using MarketingBox.Email.Service.Domain.Models;
 using Microsoft.Extensions.Logging;
 using MyNoSqlServer.Abstractions;
-using Newtonsoft.Json;
 
 namespace MarketingBox.Email.Service.Engines
 {
@@ -35,7 +34,7 @@ namespace MarketingBox.Email.Service.Engines
                 AffiliateId = elem.Affiliate.AffiliateId,
                 Token = token
             });
-            _logger.LogInformation($"Saving to noSql entity : {JsonConvert.SerializeObject(noSqlEntity)}");
+            _logger.LogInformation("Saving to noSql entity : {@NoSqlEntity}",noSqlEntity);
             await _dataWriter.InsertOrReplaceAsync(noSqlEntity);
 
             await _dataWriter.CleanAndKeepMaxPartitions(Program.Settings.ConfirmationCacheLength);
