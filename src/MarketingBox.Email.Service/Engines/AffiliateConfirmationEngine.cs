@@ -46,7 +46,8 @@ namespace MarketingBox.Email.Service.Engines
                 Program.Settings.ConfirmationEmailTemplateId,
                 new
                 {
-                    link = GetConfirmationLink(token)
+                    nickName = elem.Affiliate.GeneralInfo.Username,
+                    confirmEmailUrl = GetConfirmationLink(token)
                 });
         }
 
