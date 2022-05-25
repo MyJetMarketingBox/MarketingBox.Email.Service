@@ -18,12 +18,18 @@ namespace MarketingBox.Email.Service.Services
         public SendGridEmailSender(ILogger<SendGridEmailSender> logger)
         {
             _logger = logger;
-            
+
             var apiKey = Program.Settings.SendGridSettingsApiKey;
             _client = new SendGridClient(apiKey);
         }
 
-        public async Task<(bool, string)> SendMailAsync(string to, string header, string subject, string templateId, object data, string from = "")
+        public async Task<(bool, string)> SendMailAsync(
+            string to,
+            string header,
+            string subject,
+            string templateId,
+            object data,
+            string from = "")
         {
             if (Regex.IsMatch(to, Program.Settings.IgnoreEmailsDomains))
             {
@@ -31,10 +37,12 @@ namespace MarketingBox.Email.Service.Services
                 _logger.LogError(message);
                 return (false, message);
             }
+
             if (string.IsNullOrWhiteSpace(from))
             {
                 from = Program.Settings.SendGridSettingsFrom;
             }
+
             try
             {
                 var msg = new SendGridMessage
@@ -58,6 +66,7 @@ namespace MarketingBox.Email.Service.Services
                 _logger.LogError(e, e.Message);
                 return (false, e.Message);
             }
+
             return (true, string.Empty);
         }
     }

@@ -29,6 +29,10 @@ namespace MarketingBox.Email.Service.Settings
         [YamlProperty("MarketingBoxEmailService.MyNoSqlWriterUrl")]
         public string MyNoSqlWriterUrl { get; set; }
 
+        [YamlProperty("MarketingBoxEmailService.RegistrationAffiliateApiUrl")]
+        public string RegistrationAffiliateApiUrl { get; set; }
+
+        #region confirmation
         [YamlProperty("MarketingBoxEmailService.ConfirmationTokenLifetimeInHours")]
         public int ConfirmationTokenLifetimeInHours { get; set; }
 
@@ -43,9 +47,36 @@ namespace MarketingBox.Email.Service.Settings
         
         [YamlProperty("MarketingBoxEmailService.ConfirmationEmailSubject")]
         public string ConfirmationEmailSubject { get; set; }
+
+        #endregion
+
+        #region change password
+
+        [YamlProperty("MarketingBoxEmailService.ChangePasswordEmailHeader")]
+        public string ChangePasswordEmailHeader { get; set; }
         
-        [YamlProperty("MarketingBoxEmailService.RegistrationAffiliateApiUrl")]
-        public string RegistrationAffiliateApiUrl { get; set; }
+        [YamlProperty("MarketingBoxEmailService.ChangePasswordEmailTemplateId")]
+        public string ChangePasswordEmailTemplateId { get; set; }
+        
+        [YamlProperty("MarketingBoxEmailService.ChangePasswordEmailSubject")]
+        public string ChangePasswordEmailSubject { get; set; }
+
+        #endregion
+
+        #region recover password
+
+        [YamlProperty("MarketingBoxEmailService.RecoverPasswordEmailHeader")]
+        public string RecoverPasswordEmailHeader { get; set; }
+        
+        [YamlProperty("MarketingBoxEmailService.RecoverPasswordEmailTemplateId")]
+        public string RecoverPasswordEmailTemplateId { get; set; }
+        
+        [YamlProperty("MarketingBoxEmailService.RecoverPasswordEmailSubject")]
+        public string RecoverPasswordEmailSubject { get; set; }
+
+        #endregion
+
+        #region credentials
 
         [YamlProperty("MarketingBoxEmailService.CredentialsEmailHeader")]
         public string CredentialsEmailHeader { get; set; }
@@ -58,5 +89,7 @@ namespace MarketingBox.Email.Service.Settings
         
         [YamlProperty("MarketingBoxEmailService.CredentialsEmailLoginLink")]
         public string CredentialsEmailLoginLink { get; set; }
+
+        #endregion
     }
 }

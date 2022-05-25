@@ -21,9 +21,23 @@ namespace MarketingBox.Email.Service.Modules
                 .RegisterType<AffiliateConfirmationEngine>()
                 .AsSelf()
                 .SingleInstance();
-            
             builder
                 .RegisterType<AffiliateUpdateSubscriber>()
+                .As<IStartable>()
+                .AutoActivate()
+                .SingleInstance();
+            
+            builder
+                .RegisterType<PasswordRecoverEngine>()
+                .AsSelf()
+                .SingleInstance();
+
+            builder
+                .RegisterType<PasswordChangedEngine>()
+                .AsSelf()
+                .SingleInstance();
+            builder
+                .RegisterType<PasswordChangedSubscriber>()
                 .As<IStartable>()
                 .AutoActivate()
                 .SingleInstance();
