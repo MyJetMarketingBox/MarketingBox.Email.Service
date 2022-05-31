@@ -16,6 +16,18 @@ namespace MarketingBox.Email.Service.Modules
                 .RegisterType<SendGridEmailSender>()
                 .As<ISendGridEmailSender>()
                 .SingleInstance();
+            builder
+                .RegisterType<AffiliateConfirmationEngine>()
+                .AsSelf()
+                .SingleInstance();
+            builder
+                .RegisterType<PasswordRecoveryEngine>()
+                .AsSelf()
+                .SingleInstance();
+            builder
+                .RegisterType<PasswordChangedEngine>()
+                .AsSelf()
+                .SingleInstance();
             
             builder
                 .RegisterType<PasswordChangedSubscriber>()
@@ -31,19 +43,6 @@ namespace MarketingBox.Email.Service.Modules
                 .RegisterType<PasswordRecoverySubscriber>()
                 .As<IStartable>()
                 .AutoActivate()
-                .SingleInstance();
-            
-            builder
-                .RegisterType<AffiliateConfirmationEngine>()
-                .AsSelf()
-                .SingleInstance();
-            builder
-                .RegisterType<PasswordRecoveryEngine>()
-                .AsSelf()
-                .SingleInstance();
-            builder
-                .RegisterType<PasswordChangedEngine>()
-                .AsSelf()
                 .SingleInstance();
             
             builder.RegisterMyNoSqlWriter<AffiliateConfirmationNoSql>(
