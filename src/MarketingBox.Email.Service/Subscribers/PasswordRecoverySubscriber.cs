@@ -15,25 +15,22 @@ namespace MarketingBox.Email.Service.Subscribers
         private readonly PasswordRecoveryEngine _passwordRecoveryEngine;
 
         public PasswordRecoverySubscriber(ILogger<PasswordRecoverySubscriber> logger,
-            ISubscriber<IReadOnlyList<PasswordRecoveryEmailMessage>> subscriber,
+            ISubscriber<PasswordRecoveryEmailMessage> subscriber,
             PasswordRecoveryEngine passwordRecoveryEngine)
         {
             _logger = logger;
             _passwordRecoveryEngine = passwordRecoveryEngine;
 
-            subscriber.Subscribe(HandleEvents);
+            subscriber.Subscribe(HandleEvent);
         }
 
-        private async ValueTask HandleEvents(IReadOnlyList<PasswordRecoveryEmailMessage> events)
+        private async ValueTask HandleEvent(PasswordRecoveryEmailMessage message)
         {
             try
             {
-                _logger.LogInformation($"{nameof(PasswordRecoverySubscriber)} receive {events.Count} events.");
+                _logger.LogInformation($"{nameof(PasswordRecoverySubscriber)} receive message:{message}.");
 
-                foreach (var elem in events)
-                {
-                    await _passwordRecoveryEngine.HandleAffiliate(elem);
-                }
+                await _passwordRecoveryEngine.HandleAffiliate(message);
             }
             catch (Exception ex)
             {
