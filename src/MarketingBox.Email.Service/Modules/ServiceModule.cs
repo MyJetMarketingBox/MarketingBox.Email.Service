@@ -20,30 +20,30 @@ namespace MarketingBox.Email.Service.Modules
                 .RegisterType<AffiliateConfirmationEngine>()
                 .AsSelf()
                 .SingleInstance();
-            builder
-                .RegisterType<PasswordRecoveryEngine>()
-                .AsSelf()
-                .SingleInstance();
             // builder
-            //     .RegisterType<PasswordChangedEngine>()
+            //     .RegisterType<PasswordRecoveryEngine>()
             //     .AsSelf()
             //     .SingleInstance();
+            builder
+                .RegisterType<PasswordChangedEngine>()
+                .AsSelf()
+                .SingleInstance();
             
-            // builder
-            //     .RegisterType<PasswordChangedSubscriber>()
-            //     .As<IStartable>()
-            //     .AutoActivate()
-            //     .SingleInstance();
+            builder
+                .RegisterType<PasswordChangedSubscriber>()
+                .As<IStartable>()
+                .AutoActivate()
+                .SingleInstance();
             builder
                 .RegisterType<AffiliateUpdateSubscriber>()
                 .As<IStartable>()
                 .AutoActivate()
                 .SingleInstance();
-            builder
-                .RegisterType<PasswordRecoverySubscriber>()
-                .As<IStartable>()
-                .AutoActivate()
-                .SingleInstance();
+            // builder
+            //     .RegisterType<PasswordRecoverySubscriber>()
+            //     .As<IStartable>()
+            //     .AutoActivate()
+            //     .SingleInstance();
             
             builder.RegisterMyNoSqlWriter<AffiliateConfirmationNoSql>(
                 Program.ReloadedSettings(e => e.MyNoSqlWriterUrl),
