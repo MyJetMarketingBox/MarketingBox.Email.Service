@@ -24,16 +24,16 @@ namespace MarketingBox.Email.Service.Modules
                 .RegisterType<PasswordRecoveryEngine>()
                 .AsSelf()
                 .SingleInstance();
-            builder
-                .RegisterType<PasswordChangedEngine>()
-                .AsSelf()
-                .SingleInstance();
+            // builder
+            //     .RegisterType<PasswordChangedEngine>()
+            //     .AsSelf()
+            //     .SingleInstance();
             
-            builder
-                .RegisterType<PasswordChangedSubscriber>()
-                .As<IStartable>()
-                .AutoActivate()
-                .SingleInstance();
+            // builder
+            //     .RegisterType<PasswordChangedSubscriber>()
+            //     .As<IStartable>()
+            //     .AutoActivate()
+            //     .SingleInstance();
             builder
                 .RegisterType<AffiliateUpdateSubscriber>()
                 .As<IStartable>()
