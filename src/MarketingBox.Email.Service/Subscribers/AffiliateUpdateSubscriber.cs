@@ -28,7 +28,7 @@ namespace MarketingBox.Email.Service.Subscribers
         {
             try
             {
-                _logger.LogInformation($"NewAffiliateSubscriber receive {events.Count} events.");
+                _logger.LogInformation($"{nameof(AffiliateUpdateSubscriber)} receive {events.Count} events.");
 
                 foreach (var elem in events)
                 {

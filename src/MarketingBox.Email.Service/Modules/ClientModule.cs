@@ -2,6 +2,7 @@ using Autofac;
 using MarketingBox.Affiliate.Service.Messages;
 using MarketingBox.Affiliate.Service.Messages.Affiliates;
 using MarketingBox.Auth.Service.Messages;
+using MarketingBox.PasswordApi.Domain.Models;
 using MyJetWallet.Sdk.ServiceBus;
 using MyServiceBus.Abstractions;
 

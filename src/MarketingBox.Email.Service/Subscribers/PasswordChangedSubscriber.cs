@@ -28,7 +28,7 @@ namespace MarketingBox.Email.Service.Subscribers
         {
             try
             {
-                _logger.LogInformation($"New {nameof(PasswordChangedSubscriber)} recieved {events.Count} events.");
+                _logger.LogInformation($"{nameof(PasswordChangedSubscriber)} recieved {events.Count} events.");
 
                 foreach (var elem in events)
                 {
